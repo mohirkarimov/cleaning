@@ -127,8 +127,8 @@ class ArticleResource extends Resource
                         ->removable()
                         ->multiple()
                         ->disk('public')
-                        ->dir('articles')
-                        ->allowedExtensions(['jpg', 'gif', 'png']),
+                        ->dir('articles'),
+                        // ->allowedExtensions(['jpg', 'gif', 'png']),
 //                        Tabs::make([
 //
 //                            Tab::make('Вкладка 1', [
@@ -148,7 +148,7 @@ class ArticleResource extends Resource
 //                            ]),
 //                        ]),
 
-                        Number::make('Рейтинг','rating')
+                    Number::make('Рейтинг','rating')
                         ->stars()
                         ->min(0)
                         ->max(5),
