@@ -23,7 +23,6 @@ class Article extends Model
         'thumbnail',
         'seo_title',
         'seo_description',
-        'author_id',
         'rating',
         'link',
         'age_from',
@@ -32,7 +31,12 @@ class Article extends Model
         'color',
         'files',
         'data',
-        'code'
+        'code',
+
+
+
+
+         'author_id'
     ];
 
     protected $casts = [

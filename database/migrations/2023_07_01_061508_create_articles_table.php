@@ -17,6 +17,9 @@ return new class extends Migration
             $table->text('Slug');
             $table->text('description');
             $table->string('thumbnail');
+            //$table->unsignedSmallInteger('rating');
+            //$table->string('link');
+
 
 
             $table->timestamps();

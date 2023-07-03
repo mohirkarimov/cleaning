@@ -15,10 +15,12 @@ use MoonShine\Decorations\Tab;
 use MoonShine\Decorations\Tabs;
 use MoonShine\Fields\Image;
 use MoonShine\Fields\Number;
+use MoonShine\Fields\SlideField;
 use MoonShine\Fields\Slug;
 use MoonShine\Fields\Text;
 use MoonShine\Fields\Textarea;
 use MoonShine\Fields\TinyMce;
+use MoonShine\Fields\Url;
 use MoonShine\Resources\Resource;
 use MoonShine\Fields\ID;
 use MoonShine\Actions\FiltersAction;
@@ -95,6 +97,24 @@ class ArticleResource extends Resource
                         ]),
 
 
+                        Url::make('link')
+                        ->hideOnIndex()
+                        ->expansion('https')
+                        ->eye()
+                        ->copy()
+                        ->locked(),
+
+
+//                        SlideField::make('Возрастное ограничение' , 'age')
+//                            ->fromField('age_from')
+//                        ->toField('age_to')
+//                        ->min(0)
+//                        ->max(75)
+//                        ->step(1)
+
+
+
+
 
                     ]),
 
@@ -129,7 +149,7 @@ class ArticleResource extends Resource
 //                        ]),
 
                         Number::make('Рейтинг','rating')
-                            ->stars()
+                        ->stars()
                         ->min(0)
                         ->max(5),
 
