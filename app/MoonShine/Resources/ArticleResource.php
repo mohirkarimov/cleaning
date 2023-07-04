@@ -28,20 +28,20 @@ use MoonShine\Actions\FiltersAction;
 
 class ArticleResource extends Resource
 {
-	public static string $model = Article::class;
+    public static string $model = Article::class;
 
-	public static string $title = 'Статьи';
+    public static string $title = 'Статьи';
 
     public static string $subTitle = 'Хорошие статьи';
 
     public string $titleField = 'title';
 
-   // public static array $activeActions = ['show'];
+    // public static array $activeActions = ['show'];
 
 
-//    protected bool $editInModal = true;
-//
-//    protected bool $createInModal = true;
+    // protected bool $editInModal = true;
+    //
+    // protected bool $createInModal = true;
 
 //
 //    public static int $itemsPerPage = 5;
@@ -56,28 +56,25 @@ class ArticleResource extends Resource
 //    }
 
 
-
-
     public function fields(): array
-	{
-		return [
-		    ID::make()->sortable(),
+    {
+        return [
+            ID::make()->sortable(),
 
             Grid::make([
                 Column::make([
-                    Block::make('Основная информация',[
-                        Collapse::make('Заголовок/Slug' , [
+                    Block::make('Основная информация', [
+                        Collapse::make('Заголовок/Slug', [
                             Flex::make([
                                 Text::make('Заголовок', 'title')
-                                ->fieldContainer(false)
-                                ->required(),
+                                    ->fieldContainer(false)
+                                    ->required(),
 
-                                Slug::make('Slug' ,'Slug')
-                                ->fieldContainer(false)
-                                ->from('title')
-                                ->separator('-')
-                                ->unique(),
-
+                                Slug::make('Slug', 'Slug')
+                                    ->fieldContainer(false)
+                                    ->from('title')
+                                    ->separator('-')
+                                    ->unique(),
 
 
                             ]),
@@ -98,11 +95,11 @@ class ArticleResource extends Resource
 
 
                         Url::make('link')
-                        ->hideOnIndex()
-                        ->expansion('https')
-                        ->eye()
-                        ->copy()
-                        ->locked(),
+                            ->hideOnIndex()
+                            ->expansion('https')
+                            ->eye()
+                            ->copy()
+                            ->locked(),
 
 
 //                        SlideField::make('Возрастное ограничение' , 'age')
@@ -112,22 +109,20 @@ class ArticleResource extends Resource
 //                        ->max(75)
 //                        ->step(1)
 
-
-
-
-
                     ]),
 
                 ])->columnSpan(8),
 
                 Column::make([
 
-                    Block::make('Дополнительная информация',[
-                    Image::make('Обложка', 'thumbnail')
-                        ->removable()
-                        ->multiple()
-                        ->disk('public')
-                        ->dir('articles'),
+                    Block::make('Дополнительная информация', [
+                        Image::make('Обложка', 'thumbnail')
+                            ->removable()
+                            ->multiple()
+                            ->disk('public')
+                            ->dir('articles'),
+
+
                         // ->allowedExtensions(['jpg', 'gif', 'png']),
 //                        Tabs::make([
 //
@@ -148,28 +143,26 @@ class ArticleResource extends Resource
 //                            ]),
 //                        ]),
 
-                    Number::make('Рейтинг','rating')
-                        ->stars()
-                        ->min(0)
-                        ->max(5),
+                        Number::make('Рейтинг', 'rating')
+                            ->stars()
+                            ->min(0)
+                            ->max(5),
 
 
                     ]),
 
 
+                ])->columnSpan(4),
 
-                ])->columnSpan(4)
+
             ]),
 
-
-
-
         ];
-	}
+    }
 
-	public function rules(Model $item): array
-	{
-	    return [];
+    public function rules(Model $item): array
+    {
+        return [];
     }
 
     public function search(): array

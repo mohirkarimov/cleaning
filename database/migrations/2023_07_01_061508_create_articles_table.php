@@ -17,8 +17,11 @@ return new class extends Migration
             $table->text('Slug');
             $table->text('description');
             $table->string('thumbnail');
-            //$table->unsignedSmallInteger('rating');
-            //$table->string('link');
+            $table->unsignedSmallInteger('rating');
+            $table->string('link');
+            $table->text('seo_title');
+            $table->text('seo_description');
+
 
 
 

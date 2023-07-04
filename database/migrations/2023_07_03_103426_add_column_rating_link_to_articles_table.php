@@ -12,8 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('articles', function (Blueprint $table) {
-            $table->unsignedSmallInteger('rating');
-            $table->string('link');
+            //$table->unsignedSmallInteger('rating')->nullable();
+            //$table->string('link')->nullable();
         });
     }
 
