@@ -21,6 +21,15 @@ return new class extends Migration
             $table->string('link');
             $table->text('seo_title');
             $table->text('seo_description');
+            $table->integer('age_from');
+            $table->integer('age_to');
+            $table->text('files');
+            $table->text('color');
+            $table->text('active');
+            $table->foreignId('category_id')->constrained()->onDelete('cascade');
+
+
+
 
 
 

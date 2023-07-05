@@ -3,12 +3,14 @@
 namespace App\Providers;
 
 use App\MoonShine\Resources\ArticleResource;
+use App\MoonShine\Resources\CategoryResource;
 use Illuminate\Support\ServiceProvider;
 use MoonShine\MoonShine;
 use MoonShine\Menu\MenuGroup;
 use MoonShine\Menu\MenuItem;
 use MoonShine\Resources\MoonShineUserResource;
 use MoonShine\Resources\MoonShineUserRoleResource;
+use MoonShine\Tests\Fixtures\Models\Category;
 
 class MoonShineServiceProvider extends ServiceProvider
 {
@@ -25,6 +27,7 @@ class MoonShineServiceProvider extends ServiceProvider
             ])->translatable(),
 
             MenuGroup::make( 'Статьи',[
+                MenuItem::make('Категории', new CategoryResource(), 'heroicons.academic-cap'),
                     MenuItem::make('Статьи', new ArticleResource(), 'heroicons.academic-cap')
                 ])->icon('heroicons.outline.academic-cap'),
 

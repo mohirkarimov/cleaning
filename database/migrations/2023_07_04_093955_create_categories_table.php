@@ -11,9 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('articles', function (Blueprint $table) {
-            //$table->unsignedSmallInteger('rating')->nullable();
-            //$table->string('link')->nullable();
+        Schema::create('categories', function (Blueprint $table) {
+            $table->id();
+            $table->text('title');
+
+            $table->timestamps();
         });
     }
 
@@ -22,8 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('articles', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('categories');
     }
 };
